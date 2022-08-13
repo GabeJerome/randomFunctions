@@ -5,4 +5,4 @@
 
 using namespace std;
 
-void txtToBinary( string fileName );
+void toBinary( string fileName );
