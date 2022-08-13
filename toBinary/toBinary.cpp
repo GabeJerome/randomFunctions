@@ -2,12 +2,13 @@
 
 
 
-void txtToBinary( string fileName )
+void namesToBinary( string fileName )
 {
     ifstream fin;
     ofstream fout;
     string binFileName;
-    char name[20];
+    char name[16];
+    string sName;
 
     if ( fileName.substr( fileName.size( ) - 4, 4 ) != ".txt" )
     {
@@ -32,9 +33,10 @@ void txtToBinary( string fileName )
     }
 
     //not reading here
-    while ( fin >> name )
+    while ( fin >> sName )
     {
-        fout.write( (char *)&name, sizeof( name ) );
+        if(sName.size() < 16 )
+            fout.write( (char *)&sName, sizeof( name ) );
     }
 
     fin.close( );
@@ -44,5 +46,5 @@ void txtToBinary( string fileName )
 
 int main( )
 {
-    txtToBinary( "names.txt" );
+    namesToBinary( "names.txt" );
 }
